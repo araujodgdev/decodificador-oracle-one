@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scrollbar-width: thin;
+    overflow-y: hidden;
+}
+
+body {
+    background-color: #f3f5fc;
+    padding: 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header {
+    img {
+        width: 170px;
+        height: 170px;
+        position: relative;
+        right: 30px;
+    }
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    gap: 30px   ;
+    align-items: start;
+    position: relative;
+    top: -30px;
+
+    textarea {
+        display: block;
+        border: none;
+        background-color: #f3f5fc;
+        outline: none;
+        resize: none;
+        font-family: inherit;
+        font-size: 40px;
+        color: #14532d;
+        height: 100%;
+        scrollbar-width: thin;  
+    }
+
+    form {
+        height: 58vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    button {
+        padding: 20px 10px;
+        font-size: 20px;
+        font-weight: bold;
+        width: 300px;
+        &:hover {
+            cursor: pointer;
+        }
+    }   
+
+    #main-btn {
+        background-color: #14532d;
+        color: white;
+        border: 2px solid #14532d;
+        border-radius: 10px;
+        outline: none;
+
+        &:hover {
+            background-color: #0e3a1f;
+        }
+    }
+
+    #secondary-btn {
+        background-color: white;
+        color: #14532d;
+        border: 2px solid #14532d;
+        border-radius: 10px;
+        outline: none;
+
+        &:hover {
+            background-color: #f3f5fc;
+        }
+    }
+
+    aside {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        padding: 10px;
+        border-radius: 20px;
+        height: 85vh;
+        position: relative;
+        top: -115px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        right: -60px;
+        text-align: center;
+        max-width: 400px;
+
+        h2 {
+            font-size: 30px;
+            font-weight: bold;
+            opacity: 0.8;
+        }
+
+        h4 {
+            font-weight: bold;
+            opacity: 0.7;
+        }
+    }
+}
+
+footer {
+    margin-top: 10px;
+    position: relative;
+    top: -130px;
+    text-align: center;
+    color: #0e3a1f;
+}
