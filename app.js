@@ -5,28 +5,56 @@ const outputContainer = document.querySelector('#output-container');
 
 let rawText = '';
 
+const encryptMap = {
+  'a': 'ai',
+  'e': 'enter',
+  'i': 'imes',
+  'o': 'ober',
+  'u': 'ufat'
+};
+
+const decryptMap = {
+  'ai': 'a',
+  'enter': 'e',
+  'imes': 'i',
+  'ober': 'o',
+  'ufat': 'u'
+};
+
 function encrypt(msg) {
-  let encrypted = msg
-    .replaceAll('a', 'ai')
-    .replaceAll('e', 'enter')
-    .replaceAll('i', 'imes')
-    .replaceAll('o', 'ober')
-    .replaceAll('u', 'ufat');
+  let encrypted = '';
+
+  for (let char of msg) {
+    encrypted += encryptMap[char] || char;
+  }
 
   return encrypted;
 }
 
 function decrypt(msg) {
-  let decrypted = msg
-    .replaceAll('ai', 'a')
-    .replaceAll('enter', 'e')
-    .replaceAll('imes', 'i')
-    .replaceAll('ober', 'o')
-    .replaceAll('ufat', 'u');
+  let decrypted = '';
+  let i = 0;
+
+  while (i < msg.length) {
+    let matchFound = false;
+
+    for (let key in decryptMap) {
+      if (msg.startsWith(key, i)) {
+        decrypted += decryptMap[key];
+        i += key.length;
+        matchFound = true;
+        break;
+      }
+    }
+
+    if (!matchFound) {
+      decrypted += msg[i];
+      i++;
+    }
+  }
 
   return decrypted;
 }
-
 rawTextField.addEventListener('input', () => (rawText = rawTextField.value));
 
 encryptBtn.addEventListener('click', () => {
@@ -52,6 +80,8 @@ outputContainer.addEventListener('click', () => {
 });
 
 decryptBtn.addEventListener('click', () => {
-  document.querySelector('#no-msg-container').removeAttribute('style');
-  outputContainer.setAttribute('style', 'display: none');
+  document
+    .querySelector('#no-msg-container')
+    .setAttribute('style', 'display: none');
+  outputContainer.textContent = decrypt(rawTextField.value)
 });
